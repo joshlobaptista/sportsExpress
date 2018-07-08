@@ -5,14 +5,16 @@ var trash = document.getElementsByClassName("fa-trash");
 Array.from(basketball).forEach(function(element) {
       element.addEventListener('click', function(){
         const name = this.parentNode.parentNode.childNodes[1].innerText
-        const msg = this.parentNode.parentNode.childNodes[3].innerText
-        const basketball = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
+        const team = this.parentNode.parentNode.childNodes[3].innerText
+        const msg = this.parentNode.parentNode.childNodes[5].innerText
+        const basketball = parseFloat(this.parentNode.parentNode.childNodes[7].innerText)
         fetch('messages', {
           method: 'put',
           headers: {'Content-Type': 'application/json'},
           //what is stringify????
           body: JSON.stringify({
             'name': name,
+            'team': team,
             'msg': msg,
             'basketball':basketball
           })
@@ -30,8 +32,9 @@ Array.from(basketball).forEach(function(element) {
 Array.from(soccer).forEach(function(element) {
       element.addEventListener('click', function(){
         const name = this.parentNode.parentNode.childNodes[1].innerText
-        const msg = this.parentNode.parentNode.childNodes[3].innerText
-        const soccer = parseFloat(this.parentNode.parentNode.childNodes[7].innerText)
+        const team = this.parentNode.parentNode.childNodes[3].innerText
+        const msg = this.parentNode.parentNode.childNodes[5].innerText
+        const soccer = parseFloat(this.parentNode.parentNode.childNodes[9].innerText)
 
         fetch('messagesDown', {
           method: 'put',
@@ -39,6 +42,7 @@ Array.from(soccer).forEach(function(element) {
           //what is stringify????
           body: JSON.stringify({
             'name': name,
+            'team': team,
             'msg': msg,
             'soccer':soccer
           })
@@ -56,7 +60,8 @@ Array.from(soccer).forEach(function(element) {
 Array.from(trash).forEach(function(element) {
       element.addEventListener('click', function(){
         const name = this.parentNode.parentNode.childNodes[1].innerText
-        const msg = this.parentNode.parentNode.childNodes[3].innerText
+        const team = this.parentNode.parentNode.childNodes[3].innerText
+        const msg = this.parentNode.parentNode.childNodes[5].innerText
         fetch('messages', {
           method: 'delete',
           headers: {
@@ -64,6 +69,7 @@ Array.from(trash).forEach(function(element) {
           },
           body: JSON.stringify({
             'name': name,
+            'team': team,
             'msg': msg
           })
         }).then(function (response) {
