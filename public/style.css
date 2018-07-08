@@ -6,6 +6,10 @@ body {
   background-color: #B4ACC4;
   color: #FBFBFA;
   text-align: center;
+  background-image: url("images/sports.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: middle;
 }
 
 h1{
